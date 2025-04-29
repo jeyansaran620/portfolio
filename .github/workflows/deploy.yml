@@ -33,6 +33,7 @@ jobs:
 
     - name: Clone destination repository
       run: |
+        cd ..
         git clone https://github.com/jeyansaran620/jeyansaran620.github.io.git
         cd jeyansaran620.github.io
         git checkout master
