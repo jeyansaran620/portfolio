@@ -35,7 +35,7 @@ jobs:
       run: |
         git clone https://github.com/jeyansaran620/jeyansaran620.github.io.git
         cd jeyansaran620.github.io
-        git checkout main
+        git checkout master
 
     - name: Copy dist folder contents
       run: |
@@ -45,6 +45,6 @@ jobs:
       run: |
         git add .
         git commit -m "Update dist folder contents"
-        git push origin main
+        git push origin master
       env:
         GITHUB_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
