@@ -10,13 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source repository
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+    - name: Checkout portfolio repo
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '20'
 
@@ -26,25 +24,17 @@ jobs:
     - name: Build the project
       run: npm run build
 
-    - name: Set up Git
+    - name: Clone destination repo
       run: |
-        git config --global user.name 'Jeyan Karthikeyan'
-        git config --global user.email 'jeyansaran620@gmail.com'
-
-    - name: Clone destination repository
+        git clone https://x-access-token:${{ secrets.PORTFOLIO_TOKEN }}@github.com/jeyansaran620/jeyansaran620.github.io.git out
+        rm -rf out/*
+        cp -r dist/* out/
+    
+    - name: Commit and Push to deployment repo
       run: |
-        git clone https://github.com/jeyansaran620/jeyansaran620.github.io.git destination-repo
-        cd destination-repo
-        git checkout master
-
-    - name: Copy dist folder contents
-      run: |
-        cp -r ${{ github.workspace }}/dist/* .
-
-    - name: Commit and push changes
-      run: |
+        cd out
+        git config user.name "Jeyan Karthikeyan"
+        git config user.email "jeyansaran620@gmail.com"
         git add .
-        git commit -m "Update dist folder contents"
+        git commit -m "🚀 Deploy updated portfolio"
         git push origin master
-      env:
-        GITHUB_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
