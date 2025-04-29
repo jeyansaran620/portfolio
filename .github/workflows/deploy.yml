@@ -26,7 +26,6 @@ jobs:
     - name: Build the project
       run: npm run build
 
-
     - name: Set up Git
       run: |
         git config --global user.name 'Jeyan Karthikeyan'
@@ -37,16 +36,17 @@ jobs:
         git clone https://github.com/jeyansaran620/jeyansaran620.github.io.git
         cd jeyansaran620.github.io
         git checkout -b main
-    
+        rm -rf .git
+
     - name: Copy dist folder contents
       run: |
         cp -r ${{ github.workspace }}/dist/* .
 
     - name: Commit and push changes
       run: |
+        git init
         git add .
         git commit -m "Update dist folder contents"
-        git push origin main
+        git push -u origin main
       env:
         GITHUB_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
-
