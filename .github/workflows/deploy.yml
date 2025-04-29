@@ -40,7 +40,7 @@ jobs:
     
     - name: Copy dist folder contents
       run: |
-        cp -r ../dist/* .
+        cp -r ${{ github.workspace }}/dist/* .
 
     - name: Commit and push changes
       run: |
