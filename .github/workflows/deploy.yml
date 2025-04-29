@@ -1,0 +1,40 @@
+name: Deploy Dist Folder
+
+on:
+  push:
+    paths:
+      - 'dist/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up Git
+      run: |
+        git config --global user.name 'Jeyan Karthikeyan'
+        git config --global user.email 'jeyansaran620@gmail.com'
+
+    - name: Clone destination repository
+      run: |
+        git clone https://github.com/jeyansaran620/jeyansaran620.github.io.git
+        cd jeyansaran620.github.io
+        git checkout -b main
+    
+    - name: Copy dist folder contents
+      run: |
+        cp -r ../dist/* .
+
+    - name: Commit and push changes
+      run: |
+        git add .
+        git commit -m "Update dist folder contents"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
+
