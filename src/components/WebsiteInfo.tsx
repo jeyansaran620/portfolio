@@ -42,8 +42,8 @@ const WebsiteInfo = () => {
   ];
 
   return (
-    <section id="website" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:ml-[10%] lg:px-24 bg-[#0a192f]">
-      <div className="w-full max-w-7xl mx-auto">
+    <section id="website" className="w-full py-24 sm:py-32 px-6 sm:px-8 bg-[#0a192f]">
+      <div className="max-w-7xl mx-auto">
         <FadeInSection delay={300}>
           <div className="flex items-center mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-200 mr-4 whitespace-nowrap">

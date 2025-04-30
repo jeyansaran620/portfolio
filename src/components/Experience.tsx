@@ -32,8 +32,8 @@ const Experience = () => {
     ];
 
     return (
-        <section id="experience" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:ml-[10%] lg:px-24 bg-[#0a192f]">
-            <div className="w-full max-w-7xl mx-auto">
+        <section id="experience" className="w-full py-24 sm:py-32 px-6 sm:px-8 bg-[#0a192f]">
+            <div className="max-w-7xl mx-auto">
                 <FadeInSection delay={400}>
                     <div className="flex items-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-200 mr-4 whitespace-nowrap">
@@ -46,18 +46,18 @@ const Experience = () => {
                 <div className="space-y-16">
                     {experiences.map((exp, index) => (
                         <FadeInSection delay={500} direction="left" key={index}>
-                            <div 
+                            <div
                                 className={`
                                     relative rounded-lg overflow-hidden transition-all duration-500
-                                    ${hoveredExp === index 
-                                        ? 'pl-6 shadow-lg shadow-teal-400/10' 
+                                    ${hoveredExp === index
+                                        ? 'pl-6 shadow-lg shadow-teal-400/10'
                                         : 'pl-6 ml-2'
                                     }
                                 `}
                                 onMouseEnter={() => setHoveredExp(index)}
                                 onMouseLeave={() => setHoveredExp(null)}
                             >
-                                <div 
+                                <div
                                     className={`
                                         absolute inset-0 bg-gradient-to-r from-teal-500/5 to-blue-500/5
                                         backdrop-blur-[1px] rounded-lg border border-teal-400/10
@@ -65,12 +65,12 @@ const Experience = () => {
                                         ${hoveredExp === index ? 'opacity-100' : 'opacity-0'}
                                     `}
                                 ></div>
-                                                                <div 
+                                <div
                                     className={`
                                         absolute left-0 top-0 bottom-0 w-1 
                                         transition-all duration-500
-                                        ${hoveredExp === index 
-                                            ? 'bg-teal-400 w-1.5' 
+                                        ${hoveredExp === index
+                                            ? 'bg-teal-400 w-1.5'
                                             : 'bg-gray-700'
                                         }
                                     `}
@@ -78,9 +78,8 @@ const Experience = () => {
                                 <div className="relative z-10 p-5">
                                     <div className="text-gray-200 mb-2 text-xl font-medium">
                                         {exp.role}{" "}
-                                        <span className={`transition-colors duration-300 ${
-                                            hoveredExp === index ? 'text-teal-300' : 'text-teal-400'
-                                        }`}>
+                                        <span className={`transition-colors duration-300 ${hoveredExp === index ? 'text-teal-300' : 'text-teal-400'
+                                            }`}>
                                             @ {exp.company}
                                         </span>
                                     </div>
@@ -95,12 +94,12 @@ const Experience = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                    
+
                                     <div className="mt-6">
                                         <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
                                             {exp.tech.map((skill, i) => (
-                                                <span 
-                                                    key={i} 
+                                                <span
+                                                    key={i}
                                                     className="text-teal-400 hover:text-teal-200 transition-all duration-300"
                                                 >
                                                     {skill}
@@ -113,7 +112,7 @@ const Experience = () => {
                         </FadeInSection>
                     ))}
                 </div>
-                
+
                 <div className="mt-20">
                     <div className="flex items-center mb-6">
                         <h3 className="text-xl font-bold text-gray-200 mr-4 whitespace-nowrap">
@@ -134,23 +133,21 @@ const Experience = () => {
                                     description: "Revamped UI components by reducing bugs and enhancing responsiveness, earning the 'Inspirer' recognition for outstanding front-end development expertise."
                                 }
                             ].map((award, index) => (
-                                <div 
+                                <div
                                     key={index}
                                     className={`bg-[#112240] p-6 rounded shadow-md transition-all duration-300 cursor-default
-                                    ${hoveredAward === index 
-                                        ? 'transform translate-y-[-5px] shadow-lg shadow-teal-400/20' 
-                                        : 'hover:transform hover:translate-y-[-3px]'
-                                    }`}
+                                    ${hoveredAward === index
+                                            ? 'transform translate-y-[-5px] shadow-lg shadow-teal-400/20'
+                                            : 'hover:transform hover:translate-y-[-3px]'
+                                        }`}
                                     onMouseEnter={() => setHoveredAward(index)}
                                     onMouseLeave={() => setHoveredAward(null)}
                                 >
-                                    <h4 className={`font-medium mb-2 flex items-center ${
-                                        hoveredAward === index ? 'text-teal-400' : 'text-gray-200'
-                                    } transition-colors duration-300`}>
+                                    <h4 className={`font-medium mb-2 flex items-center ${hoveredAward === index ? 'text-teal-400' : 'text-gray-200'
+                                        } transition-colors duration-300`}>
                                         <span className="mr-2">
-                                            <i className={`ri-award-fill transition-transform duration-300 ${
-                                                hoveredAward === index ? 'animate-pulse' : ''
-                                            }`}></i>
+                                            <i className={`ri-award-fill transition-transform duration-300 ${hoveredAward === index ? 'animate-pulse' : ''
+                                                }`}></i>
                                         </span>
                                         {award.title}
                                     </h4>

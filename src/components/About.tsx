@@ -11,8 +11,8 @@ const About = () => {
     ];
 
     return (
-        <section id="about" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-24 lg:ml-[10%] bg-[#0a192f]">
-            <div className="w-full max-w-7xl mx-auto">
+        <section id="about" className="w-full py-24 sm:py-32 px-6 sm:px-8 bg-[#0a192f]">
+            <div className="max-w-7xl mx-auto">
                 <FadeInSection>
                     <div className="flex items-center mb-10">
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-200 mr-4 whitespace-nowrap">

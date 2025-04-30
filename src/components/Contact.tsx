@@ -2,8 +2,8 @@ import FadeInSection from "./FadeInSection";
 
 const Contact = () => {
     return (
-        <section id="contact" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:ml-[10%] lg:px-24 bg-[#0a192f]">
-            <div className="w-full max-w-7xl mx-auto">
+        <section id="contact" className="w-full py-24 sm:py-32 px-6 sm:px-8 bg-[#0a192f]">
+            <div className="max-w-7xl mx-auto">
                 <FadeInSection delay={400}>
                     <div className="flex items-center mb-10">
                         <h2 className="text-xl sm:text-2xl font-bold text-gray-200 mr-4 whitespace-nowrap">
@@ -33,7 +33,7 @@ const Contact = () => {
                             </a>
                         </FadeInSection>
                         <FadeInSection delay={800}>
-                            <div className="flex items-center space-x-8 mt-10">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-4 sm:space-y-0 mt-5">
                                 <a
                                     href="https://www.linkedin.com/in/jeyansaran620"
                                     target="_blank"

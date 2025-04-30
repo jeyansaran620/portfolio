@@ -2,8 +2,8 @@ import FadeInSection from "./FadeInSection";
 
 const Home = () => {
   return (
-    <section id="home" className="w-full min-h-screen flex flex-col justify-center px-8 lg:ml-[10%] lg:px-24 py-24 sm:py-32 bg-[#0a192f]">
-      <div className="max-w-4xl">
+    <section id="home" className="w-full py-24 sm:py-32 px-6 sm:px-8 bg-[#0a192f]">
+      <div className="max-w-7xl mx-auto">
         <p className="font-mono text-2xl text-teal-400 mb-6">Hi, my name is</p>
 
         <FadeInSection delay={500}>
