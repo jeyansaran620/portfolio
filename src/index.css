@@ -71,7 +71,6 @@ body {
   @apply bg-[#0a192f] text-gray-300;
 }
 
-/* Add to your global CSS file */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -2,7 +2,7 @@ import FadeInSection from "./FadeInSection";
 
 const Contact = () => {
     return (
-        <section id="contact" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-24 bg-[#0a192f]">
+        <section id="contact" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:ml-[10%] lg:px-24 bg-[#0a192f]">
             <div className="w-full max-w-7xl mx-auto">
                 <FadeInSection delay={400}>
                     <div className="flex items-center mb-10">

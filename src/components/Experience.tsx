@@ -32,7 +32,7 @@ const Experience = () => {
     ];
 
     return (
-        <section id="experience" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:px-24 bg-[#0a192f]">
+        <section id="experience" className="w-full py-24 sm:py-32 px-6 sm:px-8 lg:ml-[10%] lg:px-24 bg-[#0a192f]">
             <div className="w-full max-w-7xl mx-auto">
                 <FadeInSection delay={400}>
                     <div className="flex items-center mb-10">
@@ -47,49 +47,73 @@ const Experience = () => {
                     {experiences.map((exp, index) => (
                         <FadeInSection delay={500} direction="left" key={index}>
                             <div 
-                                className={`border-l-2 pl-6 ml-2 transition-all duration-300 ${
-                                    hoveredExp === index 
-                                        ? 'border-teal-400 border-l-4 -ml-0' 
-                                        : 'border-gray-700 hover:border-gray-500'
-                                }`}
+                                className={`
+                                    relative rounded-lg overflow-hidden transition-all duration-500
+                                    ${hoveredExp === index 
+                                        ? 'pl-6 shadow-lg shadow-teal-400/10' 
+                                        : 'pl-6 ml-2'
+                                    }
+                                `}
                                 onMouseEnter={() => setHoveredExp(index)}
                                 onMouseLeave={() => setHoveredExp(null)}
                             >
-                                <div className="text-gray-200 mb-2 text-xl font-medium">
-                                    {exp.role}{" "}
-                                    <span className={`transition-colors duration-300 ${
-                                        hoveredExp === index ? 'text-teal-300' : 'text-teal-400'
-                                    }`}>
-                                        @ {exp.company}
-                                    </span>
-                                </div>
-                                <div className="text-gray-400 mb-5 font-mono text-sm">
-                                    {exp.duration}
-                                </div>
-                                <ul className="text-gray-400 space-y-4">
-                                    {exp.responsibilities.map((item, i) => (
-                                        <li key={i} className="flex group">
-                                            <span className="text-teal-400 mr-2 mt-1 transition-transform duration-300 group-hover:translate-x-1">▹</span>
-                                            <span className="group-hover:text-gray-300 transition-colors duration-300">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                                                <div className="mt-6">
-                                    <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
-                                        {exp.tech.map((skill, i) => (
-                                            <span 
-                                                key={i} 
-                                                className="text-teal-400 hover:text-teal-200 transition-all duration-300"
-                                            >
-                                                {skill}
-                                            </span>
+                                <div 
+                                    className={`
+                                        absolute inset-0 bg-gradient-to-r from-teal-500/5 to-blue-500/5
+                                        backdrop-blur-[1px] rounded-lg border border-teal-400/10
+                                        transition-opacity duration-500 pointer-events-none
+                                        ${hoveredExp === index ? 'opacity-100' : 'opacity-0'}
+                                    `}
+                                ></div>
+                                                                <div 
+                                    className={`
+                                        absolute left-0 top-0 bottom-0 w-1 
+                                        transition-all duration-500
+                                        ${hoveredExp === index 
+                                            ? 'bg-teal-400 w-1.5' 
+                                            : 'bg-gray-700'
+                                        }
+                                    `}
+                                ></div>
+                                <div className="relative z-10 p-5">
+                                    <div className="text-gray-200 mb-2 text-xl font-medium">
+                                        {exp.role}{" "}
+                                        <span className={`transition-colors duration-300 ${
+                                            hoveredExp === index ? 'text-teal-300' : 'text-teal-400'
+                                        }`}>
+                                            @ {exp.company}
+                                        </span>
+                                    </div>
+                                    <div className="text-gray-400 mb-5 font-mono text-sm">
+                                        {exp.duration}
+                                    </div>
+                                    <ul className="text-gray-400 space-y-4">
+                                        {exp.responsibilities.map((item, i) => (
+                                            <li key={i} className="flex group">
+                                                <span className="text-teal-400 mr-2 mt-1 transition-transform duration-300 group-hover:translate-x-1">▹</span>
+                                                <span className="group-hover:text-gray-300 transition-colors duration-300">{item}</span>
+                                            </li>
                                         ))}
+                                    </ul>
+                                    
+                                    <div className="mt-6">
+                                        <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
+                                            {exp.tech.map((skill, i) => (
+                                                <span 
+                                                    key={i} 
+                                                    className="text-teal-400 hover:text-teal-200 transition-all duration-300"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </FadeInSection>
                     ))}
                 </div>
+                
                 <div className="mt-20">
                     <div className="flex items-center mb-6">
                         <h3 className="text-xl font-bold text-gray-200 mr-4 whitespace-nowrap">
