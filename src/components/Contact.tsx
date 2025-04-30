@@ -6,7 +6,6 @@ const Contact = () => {
             <div className="w-full max-w-7xl mx-auto">
                 <FadeInSection delay={400}>
                     <div className="flex items-center mb-10">
-
                         <h2 className="text-xl sm:text-2xl font-bold text-gray-200 mr-4 whitespace-nowrap">
                             <span className="text-teal-400 font-mono mr-2">04.</span>
                             What's Next?
@@ -58,6 +57,14 @@ const Contact = () => {
                                     className="text-sm sm:text-base text-gray-400 hover:text-teal-400 transition duration-200"
                                 >
                                     LeetCode
+                                </a>
+                                <a
+                                    href="https://www.geeksforgeeks.org/user/jeyansaran620/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm sm:text-base text-gray-400 hover:text-teal-400 transition duration-200"
+                                >
+                                    GeeksForGeeks
                                 </a>
                                 <a
                                     href="https://www.hackerrank.com/profile/jeyansaran620"

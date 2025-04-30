@@ -30,12 +30,14 @@ const Home = () => {
         <FadeInSection delay={800} direction="right">
           <div className="mt-12">
             <a
-              href="#contact"
+              href="https://raw.githubusercontent.com/jeyansaran620/files/main/Jeyan_Karthikeyan_Software_Developer_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-7 py-4 border border-teal-400 text-teal-400 rounded font-mono text-sm
               hover:bg-teal-400 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-teal-400 
               focus:ring-opacity-50 transition duration-300 ease-in-out"
             >
-              Get in touch
+              Check Resume
             </a>
           </div>
         </FadeInSection>

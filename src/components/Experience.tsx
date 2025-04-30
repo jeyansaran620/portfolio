@@ -1,6 +1,10 @@
 import FadeInSection from "./FadeInSection";
+import { useState } from "react";
 
 const Experience = () => {
+    const [hoveredExp, setHoveredExp] = useState<number | null>(null);
+    const [hoveredAward, setHoveredAward] = useState<number | null>(null);
+
     const experiences = [
         {
             company: "Walmart",
@@ -12,7 +16,7 @@ const Experience = () => {
                 "Enhanced the frontend UI for Chakra using JavaScript, fixing critical bugs and improving user experience, resulting in a 20% increase in user satisfaction.",
                 "Implemented new fulfillment types in the appointment scheduling platform, driving a 25% increase in user participation and a 30% boost in sales."
             ],
-            tech: "Java | Reactive Spring Boot | JavaScript | Azure | CosmosDB"
+            tech: ["Java", "Reactive Spring Boot", "JavaScript", "Azure", "CosmosDB"]
         },
         {
             company: "ThoughtWorks",
@@ -23,7 +27,7 @@ const Experience = () => {
                 "Implemented a controlled deployment process using Pacts for a banking client, enhancing system reliability across teams and reducing debugging time in development environments by 25%.",
                 "Introduced a system to enable or disable features in our application using Flagr service, resulting in a 15% boost in system flexibility."
             ],
-            tech: "Java | Spring Boot | React | Azure DevOps | Pact | Flagr"
+            tech: ["Java", "Spring Boot", "React", "Node", "Express", "Azure DevOps"]
         }
     ];
 
@@ -41,25 +45,46 @@ const Experience = () => {
                 </FadeInSection>
                 <div className="space-y-16">
                     {experiences.map((exp, index) => (
-                        <FadeInSection delay={500} direction="left">
-                            <div key={index} className="border-l-2 border-gray-700 pl-6 ml-2">
+                        <FadeInSection delay={500} direction="left" key={index}>
+                            <div 
+                                className={`border-l-2 pl-6 ml-2 transition-all duration-300 ${
+                                    hoveredExp === index 
+                                        ? 'border-teal-400 border-l-4 -ml-0' 
+                                        : 'border-gray-700 hover:border-gray-500'
+                                }`}
+                                onMouseEnter={() => setHoveredExp(index)}
+                                onMouseLeave={() => setHoveredExp(null)}
+                            >
                                 <div className="text-gray-200 mb-2 text-xl font-medium">
                                     {exp.role}{" "}
-                                    <span className="text-teal-400">@ {exp.company}</span>
+                                    <span className={`transition-colors duration-300 ${
+                                        hoveredExp === index ? 'text-teal-300' : 'text-teal-400'
+                                    }`}>
+                                        @ {exp.company}
+                                    </span>
                                 </div>
                                 <div className="text-gray-400 mb-5 font-mono text-sm">
                                     {exp.duration}
                                 </div>
                                 <ul className="text-gray-400 space-y-4">
                                     {exp.responsibilities.map((item, i) => (
-                                        <li key={i} className="flex">
-                                            <span className="text-teal-400 mr-2 mt-1">▹</span>
-                                            <span>{item}</span>
+                                        <li key={i} className="flex group">
+                                            <span className="text-teal-400 mr-2 mt-1 transition-transform duration-300 group-hover:translate-x-1">▹</span>
+                                            <span className="group-hover:text-gray-300 transition-colors duration-300">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
-                                <div className="text-gray-400 mt-6 font-mono text-xs">
-                                    {exp.tech}
+                                                                <div className="mt-6">
+                                    <div className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-sm">
+                                        {exp.tech.map((skill, i) => (
+                                            <span 
+                                                key={i} 
+                                                className="text-teal-400 hover:text-teal-200 transition-all duration-300"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </FadeInSection>
@@ -73,22 +98,43 @@ const Experience = () => {
                         </h3>
                         <div className="h-px bg-gray-700 flex-grow"></div>
                     </div>
-                    <FadeInSection delay={400} >
+                    <FadeInSection delay={400}>
                         <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-[#112240] p-6 rounded shadow-md">
-                                <h4 className="text-gray-200 font-medium mb-2">Bravo Award - 2024</h4>
-                                <p className="text-gray-400 text-sm">
-                                    Recognized with Bravo Award for exceptional contributions towards Sam's backend team initiatives,
-                                    showcasing strong backend development skills and teamwork.
-                                </p>
-                            </div>
-                            <div className="bg-[#112240] p-6 rounded shadow-md">
-                                <h4 className="text-gray-200 font-medium mb-2">Inspirer Recognition</h4>
-                                <p className="text-gray-400 text-sm">
-                                    Revamped UI components by reducing bugs and enhancing responsiveness,
-                                    earning the 'Inspirer' recognition for outstanding front-end development expertise.
-                                </p>
-                            </div>
+                            {[
+                                {
+                                    title: "Bravo Award - 2024",
+                                    description: "Recognized with Bravo Award for exceptional contributions towards Sam's backend team initiatives, showcasing strong backend development skills and teamwork."
+                                },
+                                {
+                                    title: "Inspirer Recognition",
+                                    description: "Revamped UI components by reducing bugs and enhancing responsiveness, earning the 'Inspirer' recognition for outstanding front-end development expertise."
+                                }
+                            ].map((award, index) => (
+                                <div 
+                                    key={index}
+                                    className={`bg-[#112240] p-6 rounded shadow-md transition-all duration-300 cursor-default
+                                    ${hoveredAward === index 
+                                        ? 'transform translate-y-[-5px] shadow-lg shadow-teal-400/20' 
+                                        : 'hover:transform hover:translate-y-[-3px]'
+                                    }`}
+                                    onMouseEnter={() => setHoveredAward(index)}
+                                    onMouseLeave={() => setHoveredAward(null)}
+                                >
+                                    <h4 className={`font-medium mb-2 flex items-center ${
+                                        hoveredAward === index ? 'text-teal-400' : 'text-gray-200'
+                                    } transition-colors duration-300`}>
+                                        <span className="mr-2">
+                                            <i className={`ri-award-fill transition-transform duration-300 ${
+                                                hoveredAward === index ? 'animate-pulse' : ''
+                                            }`}></i>
+                                        </span>
+                                        {award.title}
+                                    </h4>
+                                    <p className="text-gray-400 text-sm">
+                                        {award.description}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </FadeInSection>
                 </div>

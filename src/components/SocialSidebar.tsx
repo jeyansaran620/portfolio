@@ -18,6 +18,11 @@ const SocialSidebar = () => {
       icon: "ri-code-box-fill"
     },
     {
+      name: "GeeksForGeeks",
+      url: "https://auth.geeksforgeeks.org/user/jeyansaran620",
+      icon: "ri-code-s-slash-line"
+    },
+    {
       name: "HackerRank",
       url: "https://www.hackerrank.com/profile/jeyansaran620",
       icon: "ri-terminal-fill"
@@ -25,19 +30,19 @@ const SocialSidebar = () => {
   ];
 
   return (
-    <div className="fixed left-6 bottom-0 z-10 hidden xl:block">
+    <div className="fixed left-8 bottom-0 z-10 hidden xl:block">
       <FadeInSection delay={300}>
-        <ul className="flex flex-col items-center space-y-6 after:content-[''] after:w-px after:h-24 after:bg-gray-400 after:block after:mx-auto after:mt-6">
+        <ul className="flex flex-col items-center space-y-8 after:content-[''] after:w-px after:h-24 after:bg-gray-400 after:block after:mx-auto after:mt-8">
           {socialLinks.map((link, index) => (
-            <li key={index} className="transition-transform duration-200 hover:-translate-y-1">
+            <li key={index} className="transition-transform duration-200 hover:-translate-y-2">
               <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.name}
-                className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
+                className="text-gray-400 hover:text-teal-400 transition-colors duration-300 block"
               >
-                <i className={link.icon} aria-hidden="true"></i>
+                <i className={`${link.icon} text-xl`} aria-hidden="true"></i>
                 <span className="sr-only">{link.name}</span>
               </a>
             </li>
